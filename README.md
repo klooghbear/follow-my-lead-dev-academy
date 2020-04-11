@@ -1,4 +1,11 @@
-# MY BOILER PLATE
+# Follow My Lead v2.0
+
+<p>Welcom version two of FML. This is a remake after my time at EDA.</p>
+
+### Trello Board
+
+<p>https://trello.com/b/3okn30pN/follow-my-lead-v20</p>
+<p>This is where tasks will be monitored</p>
 
 ## TECH
 
