@@ -1,6 +1,8 @@
 body, html {
   height: 100%;
+  background-color: whitesmoke;
   font-family: 'Spartan';
+  box-sizing: border-box;
 }
 
 .home-image {
@@ -10,4 +12,56 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+}
+
+.home-page-headline {
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Love Ya Like A Sister';
+  color: white;
+  font-size: 4.5em;
+}
+
+.home-page-ptag {
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'courgette';
+  font-size: 2em;
+  color: white;
+}
+
+.register-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 80%;
+}
+
+.button {
+  background-color: rgb(32, 40, 41);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
 }
