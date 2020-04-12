@@ -5,6 +5,51 @@ body, html {
   box-sizing: border-box;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5bc4f1;
+  padding: 5px 16px;
+}
+
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.nav li {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: 'Love Ya Like A Sister';
+  font-size: 25px;
+}
+
+.nav li:hover {
+  background-color: #111;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+}
+
+.logo:hover {
+  transform: scale(1.2);
+  transition: 0.1s ease-in-out;
+}
+
 .home-image {
   background-image: url("./images/dog-on-lead.jpeg");
   height: 120vh;
@@ -17,7 +62,7 @@ body, html {
 .home-page-headline {
   position: absolute;
   text-align: center;
-  top: 23%;
+  top: 39%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Love Ya Like A Sister';
@@ -31,7 +76,7 @@ body, html {
   text-align: center;
   position: absolute;
   padding: 5%;
-  top: 85%;
+  top: 105%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'courgette';
@@ -44,7 +89,7 @@ body, html {
   justify-content: center;
   flex-wrap: nowrap;
   position: absolute;
-  top: 70%;
+  top: 87%;
   left: 50%;
   transform: translate(-50%, -50%);
   min-width: 70%;
@@ -68,4 +113,25 @@ body, html {
 .button:hover {
   background-color: white;
   color: black;
+}
+
+.blurb-container {
+  width: 70%;
+  max-width: 750px;
+  margin-top: 3%; 
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2%;
+}
+
+.blurb-headline {
+  font-family: 'Courgette';
+  font-size: 40px;
+  text-align: center;
+}
+
+.blurb-text {
+  margin-top: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
