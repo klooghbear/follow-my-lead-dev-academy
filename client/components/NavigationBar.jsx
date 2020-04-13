@@ -19,36 +19,36 @@ const NavigationBar = () => {
     <>
       <Navbar className="nav" light expand="md">
         <NavbarBrand>
-          <NavLink>
+          <Link to="/">
             <img className="logo" src="/images/Logo2.png" alt="" />
-          </NavLink>
+          </Link>
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link to="/contact" style={{ textDecoration: 'none' }}>
                 <Button color="" className="text-white">
                   <h3>Contact</h3>
                 </Button>
               </Link>
             </NavItem>
             <NavItem>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link to="/about" style={{ textDecoration: 'none' }}>
                 <Button color="" className="text-white ">
                   <h3>About</h3>
                 </Button>
               </Link>
             </NavItem>
             <NavItem>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link to="/login" style={{ textDecoration: 'none' }}>
                 <Button color="" className="text-white ">
                   <h3>Login</h3>
                 </Button>
               </Link>
             </NavItem>
             <NavItem>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link to="/" style={{ textDecoration: 'none' }}>
                 <Button color="" className="text-white ">
                   <h3>Home</h3>
                 </Button>

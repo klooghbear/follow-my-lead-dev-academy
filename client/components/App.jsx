@@ -3,6 +3,7 @@ import Home from './Home';
 import NavigationBar from './NavigationBar';
 import BackgroundImage from './BackgroundImage';
 import Header from './Header';
+import Contact from './Contact'
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 const App = () => {
@@ -10,9 +11,8 @@ const App = () => {
     <>
       <Router>
         <Route path="/" component={NavigationBar} />
-        <BackgroundImage />
-        <Header />
         <Route exact path="/" component={Home} />
+        <Route path="/contact" component={Contact}/>
       </Router>
     </>
   );

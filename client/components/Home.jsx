@@ -1,9 +1,13 @@
 import React from 'react';
 import { Button, Container } from 'reactstrap';
+import BackgroundImage from './BackgroundImage'
+import Header from './Header'
 
 const Home = () => {
   return (
     <>
+      <BackgroundImage />
+      <Header/>
       <div className="register-buttons">
         <Button className="button" to="/Register/Owner">
           Sign your dog up for walks!

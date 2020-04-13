@@ -123,3 +123,30 @@ html {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
 }
+
+.page-title {
+  text-align: center;
+  font-family: 'courgette';
+  margin: 3%;
+  color: rgb(55, 53, 53);
+  font-size: 50px;
+}
+
+.profile-container {
+  width: 40%;
+  min-width: 320px;
+  margin: 0 auto;
+  margin-bottom: 3%;
+  margin-top: 100px;
+  text-align: center;
+  background-color: rgba(151, 163, 142, 0.4);
+  border-radius: 3%;
+  padding: 1%;
+  box-shadow: 5px 10px 18px grey;
+}
+
+
+.profile-info {
+  margin: 0%;
+  text-align: left;
+}
