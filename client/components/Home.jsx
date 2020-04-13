@@ -1,5 +1,4 @@
 import React from 'react';
-import HeroImage from './BackgroundImage';
 import { Button, Container } from 'reactstrap';
 
 const Home = () => {

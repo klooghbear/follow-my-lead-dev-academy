@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Header from './Header';
+import { Link } from 'react-router-dom';
 import {
+  Button,
   Collapse,
   Navbar,
   NavbarToggler,
@@ -8,21 +9,16 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Container,
 } from 'reactstrap';
 
-const NavigationBar = (props) => {
+const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
   return (
     <>
       <Navbar className="nav" light expand="md">
-        <NavbarBrand href="/home">
+        <NavbarBrand>
           <NavLink>
             <img className="logo" src="/images/Logo2.png" alt="" />
           </NavLink>
@@ -31,30 +27,35 @@ const NavigationBar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/about">Components</NavLink>
+              <Link style={{ textDecoration: 'none' }}>
+                <Button color="" className="text-white">
+                  <h3>Contact</h3>
+                </Button>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
+              <Link style={{ textDecoration: 'none' }}>
+                <Button color="" className="text-white ">
+                  <h3>About</h3>
+                </Button>
+              </Link>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            <NavItem>
+              <Link style={{ textDecoration: 'none' }}>
+                <Button color="" className="text-white ">
+                  <h3>Login</h3>
+                </Button>
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link style={{ textDecoration: 'none' }}>
+                <Button color="" className="text-white ">
+                  <h3>Home</h3>
+                </Button>
+              </Link>
+            </NavItem>
           </Nav>
         </Collapse>
-        {/* <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link> */}
       </Navbar>
     </>
   );
