@@ -14,8 +14,12 @@ html {
 }
 
 .nav li {
+  justify-content: space-around;
+  min-width: 30px;
+  margin: auto 0;
+  text-align: center;
   color: white;
-  padding: 14px 16px;
+  padding: 10px 10px;
   font-family: 'Love Ya Like A Sister';
 }
 
@@ -145,8 +149,13 @@ html {
   box-shadow: 5px 10px 18px grey;
 }
 
-
 .profile-info {
   margin: 0%;
   text-align: left;
 }
+
+.img-style {
+  width: 70%;
+  display: block;
+  margin-left: 14%;
+};
