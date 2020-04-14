@@ -29,28 +29,28 @@ const NavigationBar = () => {
             <NavItem>
               <Link to="/contact" style={{ textDecoration: 'none' }}>
                 <Button color="" className="text-white">
-                  <h3>Contact</h3>
+                  <h4>Contact</h4>
                 </Button>
               </Link>
             </NavItem>
             <NavItem>
               <Link to="/about" style={{ textDecoration: 'none' }}>
                 <Button color="" className="text-white ">
-                  <h3>About</h3>
+                  <h4>About</h4>
                 </Button>
               </Link>
             </NavItem>
             <NavItem>
               <Link to="/login" style={{ textDecoration: 'none' }}>
                 <Button color="" className="text-white ">
-                  <h3>Login</h3>
+                  <h4>Login</h4>
                 </Button>
               </Link>
             </NavItem>
             <NavItem>
               <Link to="/" style={{ textDecoration: 'none' }}>
                 <Button color="" className="text-white ">
-                  <h3>Home</h3>
+                  <h4>Home</h4>
                 </Button>
               </Link>
             </NavItem>

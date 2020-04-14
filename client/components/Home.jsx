@@ -10,7 +10,7 @@ const Home = () => {
       <Header/>
       <div className="register-buttons">
         <Button className="button" to="/Register/Owner">
-          Sign your dog up for walks!
+          Sign your dog up!
         </Button>
         <Button className="button" to="/Register/Walker">
           Register to walk a dog!

@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <div>
       <h1 className="page-title">Super Speedy Contact Page!</h1>
-      <div className="profile-container">
+      <div className="box">
         <p className="profile-info">
           Email me and I'll be in touch soon! <a href="">{contactEmail}</a>
         </p>

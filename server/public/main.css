@@ -1,9 +1,12 @@
-body,
 html {
-  height: 100%;
-  background-color: whitesmoke;
-  font-family: 'Spartan';
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: whitesmoke;
+  height: 100%;
+  font-family: 'Spartan';
 }
 
 .nav {
@@ -14,8 +17,12 @@ html {
 }
 
 .nav li {
+  justify-content: space-around;
+  min-width: 30px;
+  margin: auto 0;
+  text-align: center;
   color: white;
-  padding: 14px 16px;
+  padding: 10px 10px;
   font-family: 'Love Ya Like A Sister';
 }
 
@@ -75,15 +82,17 @@ html {
 .register-buttons {
   display: flex;
   justify-content: center;
-  flex-wrap: nowrap;
   position: absolute;
   top: 87%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 70%;
+  min-width: 80%;
 }
 
 .button {
+  width: 30%;
+  min-width: 150px;
+  min-height: 60px;
   background-color: rgb(32, 40, 41);
   border: none;
   color: white;
@@ -92,7 +101,7 @@ html {
   display: inline-block;
   font-size: 20px;
   height: auto;
-  margin: 2px 2px;
+  margin: 5%;
   cursor: pointer;
   transition-duration: 0.4s;
   border-radius: 10px;
@@ -132,21 +141,68 @@ html {
   font-size: 50px;
 }
 
-.profile-container {
-  width: 40%;
+.box {
+  width: 42%;
   min-width: 320px;
   margin: 0 auto;
-  margin-bottom: 3%;
-  margin-top: 100px;
+  margin-top: 5%;
+  margin-bottom: 5%;
   text-align: center;
   background-color: rgba(151, 163, 142, 0.4);
   border-radius: 3%;
-  padding: 1%;
+  padding: 2%;
   box-shadow: 5px 10px 18px grey;
 }
-
 
 .profile-info {
   margin: 0%;
   text-align: left;
+}
+
+.img-style {
+  width: 70%;
+  display: block;
+  margin-left: 14%;
+}
+
+.box:hover .logoform {
+  transform: rotate(30deg);
+}
+
+.form {
+  color: black;
+}
+
+.logoform {
+  height: 100px;
+  width: 100px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logoform:hover {
+  transform: rotate(30deg);
+}
+
+.box Input {
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  margin: 5px 0;
+  margin-left: 10%;
+  max-width: 80%;
+  border: none;
+  border-style: solid;
+  border-color: white;
+  transform: scale(0.9);
+  transition: 0.3s ease-in-out;
+  box-shadow: 5px 5px 5px grey;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-radius: 10px;
+}
+
+.box Input:hover {
+  background-color: white;
+  transform: scale(1.02);
+  transition: 0.3s ease-in-out;
+  color: black;
 }
