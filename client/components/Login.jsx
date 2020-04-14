@@ -1,7 +1,7 @@
 import React from 'react';
 // import { signIn, isAuthenticated, getDecodedToken } from 'authenticare/client';
 // import { getUserDetails } from '../api/userApi';
-import { Container, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 class Login extends React.Component {
   constructor(props) {
@@ -15,31 +15,38 @@ class Login extends React.Component {
       <>
         <Form className="form">
           <h1 className="page-title">Login</h1>
-            <FormGroup className="box">
+          <div className="box">
+            <FormGroup>
               <img className="logoform" src="/images/Logo2.png" alt="logo" />
-              <Label>Username:</Label>
-              <Input
-                className="input"
-                type="text"
-                placeholder="username"
-                name="username"
-                autoComplete="off"
-              />
-              <Label> Password: </Label>
-              <Input
-                className="input"
-                type="password"
-                placeholder="password"
-                name="password"
-                autoComplete="off"
-              />
-              <Input
-                className="button"
-                type="submit"
-                value="Submit"
-                autoComplete="off"
-              />
             </FormGroup>
+            <FormGroup row>
+              <Col>
+                <Label>Username:</Label>
+                <Input
+                  type="text"
+                  placeholder="username"
+                  name="username"
+                  autoComplete="off"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Col>
+                <Label> Password: </Label>
+                <Input
+                  type="password"
+                  placeholder="password"
+                  name="password"
+                  autoComplete="off"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Col>
+                <Button className="button">Submit</Button>
+              </Col>
+            </FormGroup>
+          </div>
         </Form>
       </>
     );
