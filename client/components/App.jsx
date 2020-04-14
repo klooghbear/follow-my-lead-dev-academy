@@ -4,6 +4,7 @@ import NavigationBar from './NavigationBar';
 import About from './About'
 import Contact from './Contact'
 import Login from './Login';
+import Footer from './Footer'
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/contact" component={Contact}/>
         <Route path="/about" component={About}/>
         <Route path="/login" component={Login}/>
+        <Footer/>
       </Router>
     </>
   );
