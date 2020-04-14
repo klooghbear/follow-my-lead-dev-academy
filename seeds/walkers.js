@@ -1,14 +1,15 @@
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex('owner_table')
+  return knex('walker_table')
     .del()
     .then(function () {
       // Inserts seed entries
-      return knex('owner_table').insert([
+      return knex('walker_table').insert([
         {
           id: 1,
           first_name: 'Sebastian',
-          last_name: 'Kloogh',
+          last_name: 'KLoogh',
+          blurb: 'I love dogs',
           photo: 'https://pbs.twimg.com/profile_images/1086905886369472512/0_wEzxNm_400x400.jpg',
           city_name: 'Dunedin',
           suburb_name: 'St Clair',
@@ -17,8 +18,8 @@ exports.seed = function (knex) {
           post_code: 9012,
           email: 'sebastiankloogh@gmail.com',
           mobile_number: 0220201227,
-          user_id: 1,
-          feedback_id: 1,
+          user_id: 2,
+          feedback_id: 2,
         },
       ]);
     });

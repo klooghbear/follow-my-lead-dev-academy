@@ -1,11 +1,11 @@
 const express = require('express');
 
-const db = require('../db/dogData');
+const db = require('../db/ownerData');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  db.getDogs()
-    .then((dogs) => res.json(dogs))
+  db.getOwners()
+    .then((owner) => res.json(owner))
     .catch((err) => {
       console.error(err);
       res.status(500).json({ message: 'Something is broken' });

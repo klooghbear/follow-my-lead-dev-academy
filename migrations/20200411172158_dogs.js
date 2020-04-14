@@ -1,6 +1,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable('dog_table', (table) => {
     table.increments('id').primary();
+    table.integer('owner_id')
     table.string('name');
     table.string('breed');
     table.string('sex');

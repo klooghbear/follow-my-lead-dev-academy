@@ -1,6 +1,6 @@
 const connection = require('./connection');
 
-function getDogs(db = connection) {
+const getDogs = (db = connection) => {
   return db('dog_table').select();
 }
 

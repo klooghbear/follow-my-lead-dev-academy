@@ -7,6 +7,7 @@ exports.seed = function (knex) {
       return knex('dog_table').insert([
         {
           id: 1,
+          owner_id: 1,
           name: 'Pepper',
           breed: 'Yorkipoo',
           sex: 'Male',
