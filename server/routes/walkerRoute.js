@@ -3,12 +3,33 @@ const router = express.Router();
 const db = require('../db/walkerData');
 
 router.get('/', (req, res) => {
-  db.getWalker()
+  db.getWalkers()
     .then((walker) => res.json(walker))
     .catch((err) => {
       console.log(err);
-      res.status(500).json({ Message: 'Something is broken' });
+      res.status(500).json({ Message: 'Cannot find walkers' });
     });
 });
 
-module.exports = router
+router.get('/:id', (req, res) => {
+  let id = req.params.id;
+  db.getWalker(id)
+    .then((walker) => res.json(walker))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ Message: 'Cannot find walker' });
+    });
+});
+
+router.post('/', (req, res) => {
+  let walker = req.body;
+  walker.user_id = req.user.id;
+  db.addWalker(walker)
+    .then((id) => res.json({ id: id[0] }))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ Message: 'Cannot post to walker' });
+    });
+});
+
+module.exports = router;
