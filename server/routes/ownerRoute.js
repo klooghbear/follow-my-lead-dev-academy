@@ -1,5 +1,5 @@
 const express = require('express');
-
+const { getTokenDecoder } = require('authenticare/server')
 const db = require('../db/ownerData');
 const router = express.Router();
 

@@ -17,7 +17,41 @@ const createUser = (user, db = connection) => {
     });
 };
 
+const userExists = (username, db = connection) => {
+  return db('user_table')
+    .count('id as n')
+    .where('username', username)
+    .then((count) => count[0].n > 0);
+};
+
+const getUserByName = (username, db = connection) => {
+  return db('user_table').select().where('username', username).first();
+};
+
+const getUserDetails = (id, db = connection) => {
+  return db('walker_table')
+    .where('user_id', id)
+    .first()
+    .then((walker) => {
+      return db('owner_table')
+        .where('user_id', id)
+        .first()
+        .then((owner) => {
+          return db('user_table')
+            .where('id', id)
+            .first()
+            .then((user) => {
+              user.walker = walker;
+              user.owner = owner;
+              return user;
+            });
+        });
+    });
+};
+
 module.exports = {
   createUser,
   getUserByName,
+  getUserDetails,
+  userExists
 };

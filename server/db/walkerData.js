@@ -5,7 +5,7 @@ const getWalkers = (db = connection) => {
 };
 
 const getWalker = (id, db = connection) => {
-  return db('walker_table').where('id', id).first();
+  return db('walker_table').where({id: id}).first();
 };
 
 const addWalker = (walker, db = connection) => {
