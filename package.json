@@ -35,6 +35,7 @@
     ]
   },
   "dependencies": {
+    "eslint": "^7.0.0",
     "react-bootstrap": "^1.0.0"
   },
   "devDependencies": {

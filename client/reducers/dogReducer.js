@@ -1,14 +1,14 @@
-import { RECEIVE_DOGS, REQUEST_DOGS, ERROR } from '../actions/dogsAction'
+import { ActionTypes } from '../actions/index'
 
 const initialState = []
 
 function dogReducer (state = initialState, action) {
   switch(action.type){
-    case REQUEST_DOGS:
+    case ActionTypes.REQUEST_DOGS:
       return state
-    case RECEIVE_DOGS:
+    case ActionTypes.RECEIVE_DOGS:
       return action.payload
-    case ERROR:
+    case ActionTypes.ERROR:
       return state.payload
     default:
       return state
