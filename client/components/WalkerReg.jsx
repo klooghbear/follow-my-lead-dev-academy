@@ -57,7 +57,9 @@ export class WalkerReg extends React.Component {
         <Form className="form" onSubmit={this.handleSubmit}>
           <div className="box">
             <FormGroup>
-              <img className="logoform" src="/images/Logo2.png" alt="logo" />
+              <div className="image-container">
+                <img className="logoform" src="/images/Logo2.png" alt="logo" />
+              </div>
             </FormGroup>
             <FormGroup>
               <Col>
@@ -124,14 +126,14 @@ export class WalkerReg extends React.Component {
             <FormGroup>
               <Col>
                 <Label>About:</Label>
-                <Input
-                  className="input"
-                  type="textarea"
-                  name="blurb"
-                  onChange={this.handleChange}
-                  autoComplete="off"
-                />
               </Col>
+              <Input
+                className="textarea"
+                type="textarea"
+                name="blurb"
+                onChange={this.handleChange}
+                autoComplete="off"
+              />
             </FormGroup>
             <FormGroup>
               <Col>
@@ -156,6 +158,30 @@ export class WalkerReg extends React.Component {
                   placeholder="add your image URL here..."
                   autoComplete="off"
                 />
+              </Col>
+            </FormGroup>
+            <FormGroup>
+              <Col>
+                <Label>Location:</Label>
+                <div className="input">
+                  <select
+                    className="form-select"
+                    type="select"
+                    name="select"
+                    value="select"
+                    onChange={this.handleChange}
+                    autocomplete="off"
+                  >
+                    <option value="auckland">Auckland</option>
+                    <option value="Hamilton">Hamilton</option>
+                    <option value="Wellington">Wellington</option>
+                    <option value="Nelson">Nelson</option>
+                    <option value="Christchurch">Christchurch</option>
+                    <option value="Dunedin">Dunedin</option>
+                    <option value="Queenston">Queenstown</option>
+                    <option value="Invercargill">Invercargill</option>
+                  </select>
+                </div>
               </Col>
             </FormGroup>
             <FormGroup>
