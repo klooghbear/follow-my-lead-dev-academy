@@ -25,6 +25,7 @@ router.get('/:id', (req, res) => {
 router.post('/', getTokenDecoder(), (req, res) => {
   let walker = req.body;
   walker.user_id = req.user.id;
+  console.log(walker)
   db.addWalker(walker)
     .then((id) => res.json({ id: id[0] }))
     .catch((err) => {

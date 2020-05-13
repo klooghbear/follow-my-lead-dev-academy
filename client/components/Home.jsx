@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Container } from 'reactstrap';
 import BackgroundImage from './BackgroundImage';
 import Header from './Header';
@@ -9,12 +10,14 @@ const Home = () => {
       <BackgroundImage />
       <Header />
       <div className="register-buttons">
-        <Button className="button" to="/Register/Owner">
-          Owner Registration
-        </Button>
-        <Button className="button" to="/Register/Walker">
-          Walker Registration
-        </Button>
+        <Link to="/register/owner">
+          <button className="button">Owner Registration</button>
+        </Link>
+        <Link to="/register/walker">
+          <button className="button" to="/Register/Walker">
+            Walker Registration
+          </button>
+        </Link>
       </div>
       <div className="home-page-header">
         <div className="home-page-ptag">Partnering People and Pooches!</div>
