@@ -24,7 +24,12 @@ class Login extends React.Component {
       if(isAuthenticated()) {
         
         //TODO GET USER DETAILS WITH getUserDetails call
+        getUserDetails(getDecodedToken().id).then(user => {
+          if(user.walker) this.props.history.push('/walker/' + user.walker.id)
+          
+          //TODO handle the case for dog owner
 
+        })
 
       }
     })

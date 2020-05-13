@@ -6,7 +6,7 @@ import Contact from './Contact';
 import Login from './Login';
 import Footer from './Footer';
 import WalkerReg from './WalkerReg';
-import WalkerProfile from './WalkerProfile'
+import { WalkerProfile } from './WalkerProfile';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 const App = () => {
