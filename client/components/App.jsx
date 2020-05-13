@@ -6,6 +6,7 @@ import Contact from './Contact';
 import Login from './Login';
 import Footer from './Footer';
 import WalkerReg from './WalkerReg';
+import WalkerProfile from './WalkerProfile'
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/about" component={About} />
         <Route path="/login" component={Login} />
         <Route path="/register/walker" component={WalkerReg} />
+        <Route exact path="/walker/:id" component={WalkerProfile} />
         {/* <Route path="/register/owner" component={OwnerReg}/> */}
         <Footer />
       </Router>

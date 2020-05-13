@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/walkerData');
-const { getTokenDecoder } = require('authenticare/server')
+const { getTokenDecoder } = require('authenticare/server');
 
 router.get('/', (req, res) => {
   db.getWalkers()
@@ -25,7 +25,6 @@ router.get('/:id', (req, res) => {
 router.post('/', getTokenDecoder(), (req, res) => {
   let walker = req.body;
   walker.user_id = req.user.id;
-  console.log(walker)
   db.addWalker(walker)
     .then((id) => res.json({ id: id[0] }))
     .catch((err) => {

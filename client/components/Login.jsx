@@ -1,13 +1,33 @@
 import React from 'react';
-// import { signIn, isAuthenticated, getDecodedToken } from 'authenticare/client';
-// import { getUserDetails } from '../api/userApi';
+import { signIn, isAuthenticated, getDecodedToken } from 'authenticare/client';
+import { getUserDetails } from '../api/walker';
 import { Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      username: '',
+      password: '',
+    };
+  }
+
+  handleChange = (e) => {
+    e.preventDefault()
+    signIn({
+      username: this.state.username,
+      password: this.state.password
+    }, {
+      baseUrl: process.env.BASE_API_URL
+    }).then((token) => {
+      if(isAuthenticated()) {
+        
+        //TODO GET USER DETAILS WITH getUserDetails call
+
+
+      }
+    })
   }
 
   render() {

@@ -39,11 +39,11 @@ export class WalkerReg extends React.Component {
       if (isAuthenticated()) {
         addWalker({
           first_name: this.state.firstName,
-          last_name: this.state.last_name,
+          last_name: this.state.lastName,
           blurb: this.state.blurb,
-          city_name: this.state.location,
-          email: this.state.email,
           photo: this.state.photo,
+          city_name: this.state.city,
+          email: this.state.email,
         }).then(() => {
           this.props.history.push('/login');
         });
@@ -105,7 +105,7 @@ export class WalkerReg extends React.Component {
                 <Input
                   className="input"
                   type="text"
-                  name="first_name"
+                  name="firstName"
                   onChange={this.handleChange}
                   autoComplete="off"
                 />
@@ -117,7 +117,7 @@ export class WalkerReg extends React.Component {
                 <Input
                   className="input"
                   type="text"
-                  name="last_name"
+                  name="lastName"
                   onChange={this.handleChange}
                   autoComplete="off"
                 />
@@ -141,7 +141,7 @@ export class WalkerReg extends React.Component {
                 <Input
                   className="input"
                   type="text"
-                  name="last_name"
+                  name="email"
                   onChange={this.handleChange}
                   autoComplete="off"
                 />
@@ -167,10 +167,9 @@ export class WalkerReg extends React.Component {
                   <select
                     className="form-select"
                     type="select"
-                    name="select"
-                    value="select"
+                    name="city"
                     onChange={this.handleChange}
-                    autocomplete="off"
+                    autoComplete="off"
                   >
                     <option value="auckland">Auckland</option>
                     <option value="Hamilton">Hamilton</option>
