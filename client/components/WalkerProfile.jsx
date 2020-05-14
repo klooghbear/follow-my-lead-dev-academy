@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getWalkers } from '../api/walker';
+import { fetchWalkers } from '../api/walker';
 
 export class WalkerProfile extends React.Component {
   constructor(props) {
@@ -12,10 +12,11 @@ export class WalkerProfile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getWalkers());
+    this.props.dispatch(fetchWalkers())
   }
 
   render() {
+    console.log(this.props.walkers)
     return (
       <>
         <div>
@@ -28,7 +29,7 @@ export class WalkerProfile extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    walker: state.users,
+    walkers: state.walkers,
   };
 };
 

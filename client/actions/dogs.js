@@ -8,7 +8,7 @@ export const requestDogs = () => {
 
 export const receiveDogs = (dog) => {
   return {
-    type: ActionTypes.RECEIVE_USERS,
+    type: ActionTypes.RECEIVE_DOGS,
     payload: dog,
   };
 };
