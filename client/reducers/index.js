@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux'
 
 import dogs from './dogs'
-import user from './user'
+import users from './user'
 
 export default combineReducers({
   dogs,
-  user
+  users
 })

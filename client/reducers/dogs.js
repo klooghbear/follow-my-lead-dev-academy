@@ -1,8 +1,8 @@
-import { ActionTypes } from '../actions/index'
+import { ActionTypes } from '../actions/types'
 
 const initialState = []
 
-function dogs (state = initialState, action) {
+export const dogs = (state = initialState, action) => {
   switch(action.type){
     case ActionTypes.REQUEST_DOGS:
       return state

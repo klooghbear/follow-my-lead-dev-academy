@@ -12,11 +12,13 @@ export function fetchDogs() {
     dispatch(requestDogs());
     return request
       .get(URL)
-      .then((res) => {
-        dispatch(receiveDogs(res.body));
+      .then((res) => res.body)
+      .then(dogs => {
+        dispatch(receiveDogs(dogs))
       })
       .catch((err) => {
-        dispatch(receivedError(err.message));
+        console.log(err)
+        dispatch(receivedError(err));
       });
   };
 }

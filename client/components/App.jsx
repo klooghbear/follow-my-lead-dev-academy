@@ -8,6 +8,7 @@ import Footer from './Footer';
 import WalkerReg from './WalkerReg';
 import { WalkerProfile } from './WalkerProfile';
 import { HashRouter as Router, Route } from 'react-router-dom';
+import DogList from './DogList';
 
 const App = () => {
   return (
@@ -18,10 +19,11 @@ const App = () => {
         <Route path="/contact" component={Contact} />
         <Route path="/about" component={About} />
         <Route path="/login" component={Login} />
-        <Route path="/register/walkers" component={WalkerReg} />
-        <Route exact path="/walkers/:id" component={WalkerProfile} />
+        <Route path="/dogs" component={DogList}/>
+        {/* <Route path="/register/walkers" component={WalkerReg} />
+        <Route exact path="/walkers/:id" component={WalkerProfile} /> */}
         {/* <Route path="/register/owner" component={OwnerReg}/> */}
-        <Footer />
+        <Footer />  
       </Router>
     </>
   );
