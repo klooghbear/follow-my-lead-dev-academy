@@ -18,8 +18,8 @@ const App = () => {
         <Route path="/contact" component={Contact} />
         <Route path="/about" component={About} />
         <Route path="/login" component={Login} />
-        <Route path="/register/walker" component={WalkerReg} />
-        <Route exact path="/walker/:id" component={WalkerProfile} />
+        <Route path="/register/walkers" component={WalkerReg} />
+        <Route exact path="/walkers/:id" component={WalkerProfile} />
         {/* <Route path="/register/owner" component={OwnerReg}/> */}
         <Footer />
       </Router>

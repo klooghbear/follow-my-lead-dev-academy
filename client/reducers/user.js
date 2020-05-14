@@ -2,11 +2,11 @@ import { ActionTypes } from '../actions/index'
 
 const initialState = []
 
-function dogs (state = initialState, action) {
+function users (state = initialState, action) {
   switch(action.type){
-    case ActionTypes.REQUEST_DOGS:
+    case ActionTypes.REQUEST_USER:
       return state
-    case ActionTypes.RECEIVE_DOGS:
+    case ActionTypes.RECEIVE_USER:
       return action.payload
     case ActionTypes.ERROR:
       return state.payload
@@ -15,4 +15,4 @@ function dogs (state = initialState, action) {
   }
 }
 
-export default dogs
+export default users

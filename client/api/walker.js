@@ -1,19 +1,19 @@
 import request from 'superagent';
 
-import { requestWalker, receivedWalker, receivedError } from '../actions/index';
+import { requestUser, receivedUser, receivedError } from '../actions/index';
 import { getEncodedToken } from 'authenticare/client';
 
 const URL = '/walkers';
 
-export const fetchWalkers = () => {
+export const getWalkers = () => {
   return (dispatch) => {
-    dispatch(requestWalker());
+    dispatch(requestUser());
     return request
       .get(URL)
       .set({ Authorization: `Bearer ${getEncodedToken()}` })
       .set({ Accept: 'application/json' })
       .then((res) => {
-        dispatch(receivedWalker(res));
+        dispatch(receivedUser(res));
       })
       .catch((logError) => {
         dispatch(receivedError(logError));
@@ -22,25 +22,58 @@ export const fetchWalkers = () => {
 };
 
 export function getWalker(id) {
-  return request.get(URL + '/' + id).then((response) => response.body);
+  console.log(id);
+  return (dispatch) => {
+    dispatch(requestUser());
+    return request
+      .get(URL + '/' + id)
+      .set({ Authorization: `Bearer ${getEncodedToken()}` })
+      .set({ Accept: 'application/json' })
+      .then((walker) => {
+        dispatch(receivedUser(walker.body));
+      })
+      .catch((logError) => {
+        dispatch(receivedError(logError));
+      });
+  };
+  // return request.get(URL + '/' + id).then((response) => response.body);
 }
 
 export function addWalker(walker) {
-  return request
-    .post(URL)
-    .set({ Authorization: `Bearer ${getEncodedToken()}` })
-    .set({ 'Content-Type': 'application/json' })
-    .send(walker);
+  return (dispatch) => {
+    dispatch(requestUser());
+    return request
+      .post(URL)
+      .set({ Authorization: `Bearer ${getEncodedToken()}` })
+      .set({ 'Content-Type': 'application/json' })
+      .send(walker)
+      .then((res) => res.body)
+      .then((walker) => {
+        dispatch(receivedUser(walker));
+      })
+      .catch((err) => {
+        dispatch(receivedError(err));
+      });
+  };
 }
 
 export function getUserDetails(id) {
-  return request
-    .get('/api/user/' + id)
-    .set({ Authorization: `Bearer ${getEncodedToken()}` })
-    .set({ 'Content-Type': 'application/json' })
-    .then((res) => {
-      return res.body;
-    });
+  return (dispatch) => {
+    dispatch(requestUser());
+    return request
+      .get('/user/' + id)
+      .set({ Authorization: `Bearer ${getEncodedToken()}` })
+      .set({ 'Content-Type': 'application/json' })
+      .then((res) => {
+        return res.body;
+      });
+    // .then((user) => {
+    //   dispatch(receivedUser(user));
+    // })
+    // .catch((err) => {
+    //   dispatch(receivedError(err));
+    // });
+  };
 }
 
 export function editWalker(id, walker) {

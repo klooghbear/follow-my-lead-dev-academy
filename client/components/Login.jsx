@@ -2,6 +2,7 @@ import React from 'react';
 import { signIn, isAuthenticated, getDecodedToken } from 'authenticare/client';
 import { getUserDetails } from '../api/walker';
 import { Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { connect } from 'react-redux';
 
 class Login extends React.Component {
   constructor(props) {
@@ -14,31 +15,35 @@ class Login extends React.Component {
   }
 
   handleChange = (e) => {
-    e.preventDefault()
-    signIn({
-      username: this.state.username,
-      password: this.state.password
-    }, {
-      baseUrl: process.env.BASE_API_URL
-    }).then((token) => {
-      if(isAuthenticated()) {
-        
-        //TODO GET USER DETAILS WITH getUserDetails call
-        getUserDetails(getDecodedToken().id).then(user => {
-          if(user.walker) this.props.history.push('/walker/' + user.walker.id)
-          
-          //TODO handle the case for dog owner
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
 
-        })
-
+  handleSubmit = (e) => {
+    e.preventDefault();
+    signIn(
+      {
+        username: this.state.username,
+        password: this.state.password,
+      },
+      {
+        baseUrl: process.env.BASE_API_URL,
       }
-    })
-  }
+    ).then((token) => {
+      if (isAuthenticated()) {
+        getUserDetails(getDecodedToken().id).then((user) => {
+          console.log('the user is ' + user);
+          if (user.walker) this.props.history.push('/walkers/' + user.walker.id);
+        });
+      }
+    });
+  };
 
   render() {
     return (
       <>
-        <Form className="form">
+        <Form className="form" onSubmit={this.handleSubmit}>
           <h1 className="page-title">Login</h1>
           <div className="box">
             <FormGroup>
@@ -52,6 +57,7 @@ class Login extends React.Component {
                   placeholder="username"
                   name="username"
                   autoComplete="off"
+                  onChange={this.handleChange}
                 />
               </Col>
             </FormGroup>
@@ -63,12 +69,15 @@ class Login extends React.Component {
                   placeholder="password"
                   name="password"
                   autoComplete="off"
+                  onChange={this.handleChange}
                 />
               </Col>
             </FormGroup>
             <FormGroup row>
               <Col>
-                <Button className="button">Submit</Button>
+                <Button type="submit" value="submit" className="button">
+                  Submit
+                </Button>
               </Col>
             </FormGroup>
           </div>
