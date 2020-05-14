@@ -17,7 +17,6 @@ export function fetchDogs() {
         dispatch(receiveDogs(dogs))
       })
       .catch((err) => {
-        console.log(err)
         dispatch(receivedError(err));
       });
   };

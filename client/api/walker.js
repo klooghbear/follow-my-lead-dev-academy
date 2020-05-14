@@ -1,40 +1,50 @@
 import request from 'superagent';
-
-import { requestUser, receivedUser, receivedError } from '../actions/index';
+import {
+  receivedError,
+  requestWalkers,
+  receivedWalkers,
+} from '../actions/index';
 import { getEncodedToken } from 'authenticare/client';
 
 const URL = '/walkers';
 
-export const getWalkers = () => {
+export const fetchWalkers = () => {
   return (dispatch) => {
-    dispatch(requestUser());
+    dispatch(requestWalkers());
     return request
       .get(URL)
       .set({ Authorization: `Bearer ${getEncodedToken()}` })
       .set({ Accept: 'application/json' })
-      .then((res) => {
-        dispatch(receivedUser(res));
+      .then((res) => res.body)
+      .then((walker) => {
+        console.log(walker)
+        dispatch(receivedWalkers(walker));
       })
-      .catch((logError) => {
-        dispatch(receivedError(logError));
+      .catch((err) => {
+        console.log(err);
+        dispatch(receivedError(err));
       });
   };
 };
 
-export function getWalker(id) {
-  console.log(id);
+export function fetchWalker(id) {
   return (dispatch) => {
-    dispatch(requestUser());
-    return request
-      .get(URL + '/' + id)
-      .set({ Authorization: `Bearer ${getEncodedToken()}` })
-      .set({ Accept: 'application/json' })
-      .then((walker) => {
-        dispatch(receivedUser(walker.body));
-      })
-      .catch((logError) => {
-        dispatch(receivedError(logError));
-      });
+    dispatch(requestWalkers());
+    return (
+      request
+        .get(URL + '/' + id)
+        // .set({ Authorization: `Bearer ${getEncodedToken()}` })
+        // .set({ Accept: 'application/json' })
+        .then((res) => res.body)
+        .then((walker) => {
+          console.log(walker);
+          dispatch(receivedWalkers(walker.body));
+        })
+        .catch((err) => {
+          console.log(err);
+          dispatch(receivedError(err));
+        })
+    );
   };
   // return request.get(URL + '/' + id).then((response) => response.body);
 }

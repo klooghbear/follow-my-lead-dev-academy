@@ -1,14 +1,14 @@
 import { ActionTypes } from './types';
 
-export const requestUser = () => {
+export const requestWalkers = () => {
   return {
     type: ActionTypes.REQUEST_USER,
   };
 };
 
-export const receivedUser = (user) => {
+export const receivedWalkers = (users) => {
   return {
     type: ActionTypes.RECEIVED_USER,
-    payload: user,
+    payload: users,
   };
 };
