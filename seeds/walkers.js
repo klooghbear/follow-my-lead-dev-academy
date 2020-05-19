@@ -13,8 +13,6 @@ exports.seed = function (knex) {
           photo: 'https://pbs.twimg.com/profile_images/1086905886369472512/0_wEzxNm_400x400.jpg',
           city_name: 'Dunedin',
           email: 'sebastiankloogh@gmail.com',
-          user_id: 2,
-          feedback_id: 2,
         },
       ]);
     });

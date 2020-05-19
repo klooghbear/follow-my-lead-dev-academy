@@ -34,7 +34,7 @@ class Login extends React.Component {
       if (isAuthenticated()) {
         getUserDetails(getDecodedToken().id).then((user) => {
           console.log('the user is ' + user);
-          if (user.walker) this.props.history.push('/walkers/' + user.walker.id);
+          if (user.walker) this.props.history.push('/walker/' + user.walker.id);
         });
       }
     });

@@ -5,7 +5,7 @@ import {
   receivedError,
 } from '../actions/index';
 
-const URL = '/dogs';
+const URL = '/api/dogs';
 
 export function fetchDogs() {
   return (dispatch) => {

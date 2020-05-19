@@ -14,7 +14,7 @@ const Home = () => {
           <button className="button">Owner Registration</button>
         </Link>
         <Link to="/register/walker">
-          <button className="button" to="/Register/Walker">
+          <button className="button">
             Walker Registration
           </button>
         </Link>

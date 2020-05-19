@@ -12,6 +12,18 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/', getTokenDecoder(), (req, res) => {
+  const walker = req.body;
+  walker.user_id = req.user.id;
+  db.addWalker(walker)
+    .then((id) => {
+      res.json({ id: id[0] });
+    })
+    .catch((err) => {
+      res.status(500).json({});
+    });
+});
+
 router.get('/:id', (req, res) => {
   let id = req.params.id;
   db.getWalker(id)
@@ -19,17 +31,6 @@ router.get('/:id', (req, res) => {
     .catch((err) => {
       console.log(err);
       res.status(500).json({ Message: 'Cannot find walker' });
-    });
-});
-
-router.post('/', getTokenDecoder(), (req, res) => {
-  let walker = req.body;
-  walker.user_id = req.user.id;
-  db.addWalker(walker)
-    .then((id) => res.json({ id: id[0] }))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({});
     });
 });
 

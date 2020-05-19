@@ -13,7 +13,7 @@ const createUser = (user, db = connection) => {
       return db('user_table').insert({
         username: user.username,
         hash: passwordHash,
-      });
+      }, 'id');
     });
 };
 

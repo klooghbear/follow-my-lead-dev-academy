@@ -9,7 +9,8 @@ exports.seed = function (knex) {
           id: 1,
           first_name: 'Sebastian',
           last_name: 'Kloogh',
-          photo: 'https://pbs.twimg.com/profile_images/1086905886369472512/0_wEzxNm_400x400.jpg',
+          photo:
+            'https://pbs.twimg.com/profile_images/1086905886369472512/0_wEzxNm_400x400.jpg',
           city_name: 'Dunedin',
           suburb_name: 'St Clair',
           street_name: 'Surrey Street',
@@ -17,8 +18,6 @@ exports.seed = function (knex) {
           post_code: 9012,
           email: 'sebastiankloogh@gmail.com',
           mobile_number: 0220201227,
-          user_id: 1,
-          feedback_id: 1,
         },
       ]);
     });
