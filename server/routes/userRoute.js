@@ -4,6 +4,7 @@ const db = require('../db/userData');
 
 router.get('/:id', (req, res) => {
   let id = req.params.id;
+  console.log(id)
   db.getUserDetails(id)
     .then((response) => res.json(response))
     .catch((err) => {

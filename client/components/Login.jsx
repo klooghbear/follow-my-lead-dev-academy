@@ -29,7 +29,7 @@ class Login extends React.Component {
       },
       {
         baseUrl: process.env.BASE_API_URL,
-      }
+      },
     ).then((token) => {
       if (isAuthenticated()) {
         getUserDetails(getDecodedToken().id).then((user) => {

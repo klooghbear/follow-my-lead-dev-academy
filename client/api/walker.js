@@ -15,7 +15,10 @@ export const fetchWalkers = () => {
       .get(URL)
       .set({ Authorization: `Bearer ${getEncodedToken()}` })
       .set({ Accept: 'application/json' })
-      .then((res) => res.body)
+      .then((res) => {
+        console.log(res);
+        return res.body;
+      })
       .then((walker) => {
         console.log(walker);
         dispatch(receivedWalkers(walker));
@@ -26,6 +29,12 @@ export const fetchWalkers = () => {
       });
   };
 };
+
+export function getWalker(id) {
+  return request
+    .get(URL + id)
+    .then(response => response.body)
+}
 
 export function addWalker(newWalker) {
   return request
@@ -39,14 +48,11 @@ export function addWalker(newWalker) {
 }
 
 export function getUserDetails(id) {
-  return (dispatch) => {
-    dispatch(requestUser());
-    return request
-      .get('/user/' + id)
-      .set({ Authorization: `Bearer ${getEncodedToken()}` })
-      .set({ 'Content-Type': 'application/json' })
-      .then((res) => {
-        return res.body;
-      });
-  };
+  return request
+    .get(`/user/${id}`)
+    .set({ Authorization: `Bearer ${getEncodedToken()}` })
+    .set({ 'Content-Type': 'application/json' })
+    .then((res) => {
+      return res.body;
+    });
 }
