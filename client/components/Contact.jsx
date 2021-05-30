@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react"
 
-const contactEmail = 'sebastiankloogh@gmail.com'; //subject to change
+const contactEmail = "sebastiankloogh@gmail.com"
 
 const Contact = () => {
   return (
@@ -12,7 +12,7 @@ const Contact = () => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

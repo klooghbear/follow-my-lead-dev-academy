@@ -1,40 +1,40 @@
-import React from 'react';
-import { register, isAuthenticated } from 'authenticare/client';
-import { addWalker } from '../api/walker';
-import { Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import React from "react"
+import { register, isAuthenticated } from "authenticare/client"
+import { addWalker } from "../api/walker"
+import { Col, Form, FormGroup, Label, Input, Button } from "reactstrap"
 
 export class WalkerReg extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
-      username: '',
-      password: '',
-      firstName: '',
-      lastName: '',
-      blurb: '',
-      city: '',
-      email: '',
-      photo: '',
-    };
+      username: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+      blurb: "",
+      city: "",
+      email: "",
+      photo: "",
+    }
   }
 
-  handleChange = (e) => {
+  handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
-    });
+    })
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault()
     register(
-      {
-        username: this.state.username,
-        password: this.state.password,
-      },
-      {
-        baseUrl: process.env.BASE_API_URL,
-      }
+        {
+          username: this.state.username,
+          password: this.state.password,
+        },
+        {
+          baseUrl: process.env.BASE_API_URL,
+        },
     ).then((token) => {
       if (isAuthenticated()) {
         addWalker({
@@ -45,10 +45,10 @@ export class WalkerReg extends React.Component {
           city_name: this.state.city,
           email: this.state.email,
         }).then(() => {
-          this.props.history.push('/login');
-        });
+          this.props.history.push("/login")
+        })
       }
-    });
+    })
   };
 
   render() {
@@ -198,8 +198,8 @@ export class WalkerReg extends React.Component {
           </div>
         </Form>
       </div>
-    );
+    )
   }
 }
 
-export default WalkerReg;
+export default WalkerReg

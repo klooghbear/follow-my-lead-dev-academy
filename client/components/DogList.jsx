@@ -1,20 +1,19 @@
-import { connect } from 'react-redux';
-import React from 'react';
-import { fetchDogs } from '../api/dogs';
-import { Link } from 'react-router-dom';
-import { compose } from 'redux';
+import { connect } from "react-redux"
+import React from "react"
+import { fetchDogs } from "../api/dogs.js"
+import { Link } from "react-router-dom"
 
 class DogList extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       dogList: [],
-    };
+    }
   }
 
-  componentDidMount = () => {
-    this.props.dispatch(fetchDogs());
+  componentDidMount() {
+    this.props.dispatch(fetchDogs())
   };
 
   render() {
@@ -32,18 +31,18 @@ class DogList extends React.Component {
                 <p>{dog.name}</p>
                 <p>{dog.special_requirements}</p>
               </div>
-            );
+            )
           })}
         </div>
       </>
-    );
+    )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     dogs: state.dogs,
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps)(DogList);
+export default connect(mapStateToProps)(DogList)

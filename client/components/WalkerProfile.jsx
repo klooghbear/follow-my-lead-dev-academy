@@ -1,14 +1,14 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { fetchWalkers } from '../api/walker';
+import React from "react"
+import { connect } from "react-redux"
+import { fetchWalkers } from "../api/walker"
 
 export class WalkerProfile extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       walker: {},
-    };
+    }
   }
 
   componentDidMount() {
@@ -23,14 +23,14 @@ export class WalkerProfile extends React.Component {
           <h1>hello world</h1>
         </div>
       </>
-    );
+    )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     walkers: state.walkers,
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps)(WalkerProfile);
+export default connect(mapStateToProps)(WalkerProfile)

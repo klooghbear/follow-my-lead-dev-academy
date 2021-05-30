@@ -1,9 +1,9 @@
-const connection = require('./connection');
+const connection = require("./connection")
 
 const getDogs = (db = connection) => {
-  return db('dog_table').select();
+  return db("dog_table").select()
 }
 
 module.exports = {
   getDogs,
-};
+}

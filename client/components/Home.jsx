@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Container } from 'reactstrap';
-import BackgroundImage from './BackgroundImage';
-import Header from './Header';
+import React from "react"
+import { Link } from "react-router-dom"
+import { Container } from "reactstrap"
+import BackgroundImage from "./BackgroundImage"
+import Header from "./Header"
 
 const Home = () => {
   return (
@@ -34,7 +34,7 @@ const Home = () => {
         </div>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

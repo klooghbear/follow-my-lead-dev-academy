@@ -1,18 +1,18 @@
-import { ActionTypes } from '../actions/index';
+import { ActionTypes } from "../actions/index"
 
-const initialState = [];
+const initialState = []
 
 export const dogs = (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.REQUEST_DOGS:
-      return state;
+      return state
     case ActionTypes.RECEIVE_DOGS:
-      return action.payload;
+      return action.payload
     case ActionTypes.ERROR:
-      return state.payload;
+      return state.payload
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default dogs;
+export default dogs

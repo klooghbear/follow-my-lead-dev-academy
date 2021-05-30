@@ -34,10 +34,6 @@
       "./tests/setup.js"
     ]
   },
-  "dependencies": {
-    "eslint": "^7.0.0",
-    "react-bootstrap": "^1.0.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
@@ -52,6 +48,9 @@
     "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^7.27.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.24.0",
     "express": "^4.17.1",
     "jest": "^24.9.0",
     "knex": "^0.20.10",
@@ -62,6 +61,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "reactstrap": "^8.4.1",
+    "react-bootstrap": "^1.0.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "sqlite3": "^4.1.1",
@@ -69,5 +69,6 @@
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
-  }
+  },
+  "dependencies": {}
 }

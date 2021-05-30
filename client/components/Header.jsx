@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container } from 'reactstrap'
+import React from "react"
+import { Container } from "reactstrap"
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
         Follow My Lead!
       </Container>
     </div>
-  );
-};
+  )
+}
 
 export default Header

@@ -1,23 +1,23 @@
-import request from 'superagent';
+import request from "superagent"
 import {
   requestDogs,
   receiveDogs,
   receivedError,
-} from '../actions/index';
+} from "../actions/index"
 
-const URL = '/dogs';
+const URL = "/dogs"
 
-export function fetchDogs() {
+export const fetchDogs = () => {
   return (dispatch) => {
-    dispatch(requestDogs());
+    dispatch(requestDogs())
     return request
-      .get(URL)
-      .then((res) => res.body)
-      .then(dogs => {
-        dispatch(receiveDogs(dogs))
-      })
-      .catch((err) => {
-        dispatch(receivedError(err));
-      });
-  };
+        .get(URL)
+        .then((res) => res.body)
+        .then((dogs) => {
+          dispatch(receiveDogs(dogs))
+        })
+        .catch((err) => {
+          dispatch(receivedError(err))
+        })
+  }
 }

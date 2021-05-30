@@ -1,43 +1,42 @@
-import React from 'react';
-import { signIn, isAuthenticated, getDecodedToken } from 'authenticare/client';
-import { getUserDetails } from '../api/walker';
-import { Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import { connect } from 'react-redux';
+import React from "react"
+import { signIn, isAuthenticated, getDecodedToken } from "authenticare/client"
+import { getUserDetails } from "../api/walker"
+import { Col, Form, FormGroup, Label, Input, Button } from "reactstrap"
 
 class Login extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
-      username: '',
-      password: '',
-    };
+      username: "",
+      password: "",
+    }
   }
 
-  handleChange = (e) => {
+  handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
-    });
+    })
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault()
     signIn(
-      {
-        username: this.state.username,
-        password: this.state.password,
-      },
-      {
-        baseUrl: process.env.BASE_API_URL,
-      }
+        {
+          username: this.state.username,
+          password: this.state.password,
+        },
+        {
+          baseUrl: process.env.BASE_API_URL,
+        },
     ).then((token) => {
       if (isAuthenticated()) {
         getUserDetails(getDecodedToken().id).then((user) => {
-          console.log('the user is ' + user);
-          if (user.walker) this.props.history.push('/walkers/' + user.walker.id);
-        });
+          console.log("the user is " + user)
+          if (user.walker) this.props.history.push("/walkers/" + user.walker.id)
+        })
       }
-    });
+    })
   };
 
   render() {
@@ -83,8 +82,8 @@ class Login extends React.Component {
           </div>
         </Form>
       </>
-    );
+    )
   }
 }
 
-export default Login;
+export default Login

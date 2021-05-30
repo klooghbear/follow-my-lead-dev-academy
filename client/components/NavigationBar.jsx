@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
 import {
   Button,
   Collapse,
@@ -8,12 +8,11 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-} from 'reactstrap';
+} from "reactstrap"
 
 const NavigationBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
     <>
@@ -27,28 +26,28 @@ const NavigationBar = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <Link to="/contact" style={{ textDecoration: 'none' }}>
+              <Link to="/contact" style={{ textDecoration: "none" }}>
                 <Button color="" className="text-white">
                   <h4>Contact</h4>
                 </Button>
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/about" style={{ textDecoration: 'none' }}>
+              <Link to="/about" style={{ textDecoration: "none" }}>
                 <Button color="" className="text-white ">
                   <h4>About</h4>
                 </Button>
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/login" style={{ textDecoration: 'none' }}>
+              <Link to="/login" style={{ textDecoration: "none" }}>
                 <Button color="" className="text-white ">
                   <h4>Login</h4>
                 </Button>
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/" style={{ textDecoration: 'none' }}>
+              <Link to="/" style={{ textDecoration: "none" }}>
                 <Button color="" className="text-white ">
                   <h4>Home</h4>
                 </Button>
@@ -58,7 +57,7 @@ const NavigationBar = () => {
         </Collapse>
       </Navbar>
     </>
-  );
-};
+  )
+}
 
-export default NavigationBar;
+export default NavigationBar
