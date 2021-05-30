@@ -13,30 +13,18 @@ const NavigationBar = () => {
           <img className="logo" src="/images/Logo2.png" alt="" />
         </Link>
         <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
+        <Collapse isOpen={isOpen}>
           <Nav className="mr-auto" navbar>
-            <Link
-              to="/contact"
-              style={{ textDecoration: "none", cursor: "pointer" }}
-            >
+            <Link to="/contact">
               Contact
             </Link>
-            <Link
-              to="/about"
-              style={{ textDecoration: "none", cursor: "pointer" }}
-            >
+            <Link to="/about">
               About
             </Link>
-            <Link
-              to="/login"
-              style={{ textDecoration: "none", cursor: "pointer" }}
-            >
+            <Link to="/login">
               Login
             </Link>
-            <Link
-              to="/"
-              style={{ textDecoration: "none", cursor: "pointer" }}
-            >
+            <Link to="/">
               Home
             </Link>
           </Nav>
