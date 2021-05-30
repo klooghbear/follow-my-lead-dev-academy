@@ -1,14 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import {
-  Button,
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-} from "reactstrap"
+import { Collapse, Navbar, NavbarToggler, Nav } from "reactstrap"
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -17,42 +9,36 @@ const NavigationBar = () => {
   return (
     <>
       <Navbar className="nav" light expand="md">
-        <NavbarBrand>
-          <Link to="/">
-            <img className="logo" src="/images/Logo2.png" alt="" />
-          </Link>
-        </NavbarBrand>
+        <Link to="/">
+          <img className="logo" src="/images/Logo2.png" alt="" />
+        </Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <Link to="/contact" style={{ textDecoration: "none" }}>
-                <Button color="" className="text-white">
-                  <h4>Contact</h4>
-                </Button>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/about" style={{ textDecoration: "none" }}>
-                <Button color="" className="text-white ">
-                  <h4>About</h4>
-                </Button>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/login" style={{ textDecoration: "none" }}>
-                <Button color="" className="text-white ">
-                  <h4>Login</h4>
-                </Button>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/" style={{ textDecoration: "none" }}>
-                <Button color="" className="text-white ">
-                  <h4>Home</h4>
-                </Button>
-              </Link>
-            </NavItem>
+            <Link
+              to="/contact"
+              style={{ textDecoration: "none", cursor: "pointer" }}
+            >
+              Contact
+            </Link>
+            <Link
+              to="/about"
+              style={{ textDecoration: "none", cursor: "pointer" }}
+            >
+              About
+            </Link>
+            <Link
+              to="/login"
+              style={{ textDecoration: "none", cursor: "pointer" }}
+            >
+              Login
+            </Link>
+            <Link
+              to="/"
+              style={{ textDecoration: "none", cursor: "pointer" }}
+            >
+              Home
+            </Link>
           </Nav>
         </Collapse>
       </Navbar>
