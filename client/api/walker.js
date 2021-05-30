@@ -33,8 +33,8 @@ export const fetchWalker = (id) => {
     return (
       request
           .get(URL + "/" + id)
-      // .set({ Authorization: `Bearer ${getEncodedToken()}` })
-      // .set({ Accept: 'application/json' })
+          .set({ Authorization: `Bearer ${getEncodedToken()}` })
+          .set({ Accept: "application/json" })
           .then((res) => res.body)
           .then((walker) => {
             console.log(walker)
@@ -46,7 +46,6 @@ export const fetchWalker = (id) => {
           })
     )
   }
-  // return request.get(URL + '/' + id).then((response) => response.body);
 }
 
 export const addWalker = (walker) => {
@@ -77,12 +76,12 @@ export const getUserDetails = (id) => {
         .then((res) => {
           return res.body
         })
-    // .then((user) => {
-    //   dispatch(receivedUser(user));
-    // })
-    // .catch((err) => {
-    //   dispatch(receivedError(err));
-    // });
+        .then((user) => {
+          dispatch(receivedUser(user))
+        })
+        .catch((err) => {
+          dispatch(receivedError(err))
+        })
   }
 }
 
