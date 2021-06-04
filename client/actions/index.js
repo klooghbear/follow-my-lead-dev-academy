@@ -1,4 +1,3 @@
-export * from "./dogs"
-export * from "./auth"
-export * from "./types"
-export * from "./walker"
+export * from "./dogs.js"
+export * from "./types.js"
+export * from "./users.js"

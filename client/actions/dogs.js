@@ -1,14 +1,16 @@
 import { ActionTypes } from "./types"
 
+const { REQUEST_DOGS, RECEIVE_DOGS } = ActionTypes
+
 export const requestDogs = () => {
   return {
-    type: ActionTypes.REQUEST_DOGS,
+    type: REQUEST_DOGS,
   }
 }
 
 export const receiveDogs = (dog) => {
   return {
-    type: ActionTypes.RECEIVE_DOGS,
+    type: RECEIVE_DOGS,
     payload: dog,
   }
 }

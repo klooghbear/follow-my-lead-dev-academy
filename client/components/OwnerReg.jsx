@@ -1,6 +1,6 @@
 import React from "react"
 import { register, isAuthenticated } from "authenticare/client"
-import { addOwner } from "../api/ownerApi"
+import { postOwner } from "../api/users.js"
 
 
 class OwnerReg extends React.Component {
@@ -34,7 +34,7 @@ class OwnerReg extends React.Component {
     })
         .then((token) => {
           if (isAuthenticated()) {
-            addOwner({
+            postOwner({
               first_name: this.state.first_name,
               last_name: this.state.last_name,
               blurb: this.state.blurb,

@@ -29,6 +29,7 @@ const getUserByName = (username, db = connection) => {
 }
 
 const getUserDetails = (id, db = connection) => {
+  console.log(id)
   return db("walker_table")
       .where("user_id", id)
       .first()

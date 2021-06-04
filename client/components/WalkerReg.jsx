@@ -1,6 +1,6 @@
 import React from "react"
 import { register, isAuthenticated } from "authenticare/client"
-import { addWalker } from "../api/walker"
+import { postWalker } from "../api/users"
 import { Col, Form, FormGroup, Label, Input, Button } from "reactstrap"
 
 export class WalkerReg extends React.Component {
@@ -37,24 +37,26 @@ export class WalkerReg extends React.Component {
         },
     ).then((token) => {
       if (isAuthenticated()) {
-        addWalker({
+        postWalker({
           first_name: this.state.firstName,
           last_name: this.state.lastName,
           blurb: this.state.blurb,
           photo: this.state.photo,
           city_name: this.state.city,
           email: this.state.email,
-        }).then(() => {
-          this.props.history.push("/login")
         })
       }
+    }).then(() => {
+      this.props.history.push("/login")
+    }).catch((error) => {
+      console.log(error)
     })
-  };
+  }
 
   render() {
     return (
       <div>
-        <Form className="form" onSubmit={this.handleSubmit}>
+        <Form className="form" onSubmit={(event) => this.handleSubmit(event)}>
           <div className="box">
             <FormGroup>
               <div className="image-container">
@@ -68,7 +70,7 @@ export class WalkerReg extends React.Component {
                   className="input"
                   type="text"
                   name="username"
-                  onChange={this.handleChange}
+                  onChange={(event) => this.handleChange(event)}
                   autoComplete="off"
                 />
               </Col>
@@ -81,7 +83,7 @@ export class WalkerReg extends React.Component {
                   type="password"
                   id="pwd"
                   name="password"
-                  onChange={this.handleChange}
+                  onChange={(event) => this.handleChange(event)}
                   autoComplete="off"
                 />
               </Col>
@@ -94,7 +96,7 @@ export class WalkerReg extends React.Component {
                   type="password"
                   id="confirm-pwd"
                   name="password"
-                  onChange={this.handleChange}
+                  onChange={(event) => this.handleChange(event)}
                   autoComplete="off"
                 />
               </Col>
@@ -106,7 +108,7 @@ export class WalkerReg extends React.Component {
                   className="input"
                   type="text"
                   name="firstName"
-                  onChange={this.handleChange}
+                  onChange={(event) => this.handleChange(event)}
                   autoComplete="off"
                 />
               </Col>
@@ -118,7 +120,7 @@ export class WalkerReg extends React.Component {
                   className="input"
                   type="text"
                   name="lastName"
-                  onChange={this.handleChange}
+                  onChange={(event) => this.handleChange(event)}
                   autoComplete="off"
                 />
               </Col>
@@ -131,7 +133,7 @@ export class WalkerReg extends React.Component {
                 className="textarea"
                 type="textarea"
                 name="blurb"
-                onChange={this.handleChange}
+                onChange={(event) => this.handleChange(event)}
                 autoComplete="off"
               />
             </FormGroup>
@@ -142,7 +144,7 @@ export class WalkerReg extends React.Component {
                   className="input"
                   type="text"
                   name="email"
-                  onChange={this.handleChange}
+                  onChange={(event) => this.handleChange(event)}
                   autoComplete="off"
                 />
               </Col>
@@ -154,7 +156,7 @@ export class WalkerReg extends React.Component {
                   className="input"
                   type="text"
                   name="photo"
-                  onChange={this.handleChange}
+                  onChange={(event) => this.handleChange(event)}
                   placeholder="add your image URL here..."
                   autoComplete="off"
                 />
@@ -168,7 +170,7 @@ export class WalkerReg extends React.Component {
                     className="form-select"
                     type="select"
                     name="city"
-                    onChange={this.handleChange}
+                    onChange={(event) => this.handleChange(event)}
                     autoComplete="off"
                   >
                     <option value="auckland">Auckland</option>

@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { fetchWalkers } from "../api/walker"
+import { fetchWalkers } from "../api/users"
 
 export class WalkerProfile extends React.Component {
   constructor(props) {

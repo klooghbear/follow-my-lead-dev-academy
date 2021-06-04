@@ -3,7 +3,7 @@ const { getTokenDecoder } = require("authenticare/server")
 const db = require("../db/ownerData")
 const router = express.Router()
 
-router.get("/", (req, res) => {
+router.get("/", getTokenDecoder(), (req, res) => {
   db.getOwners()
       .then((owner) => res.json(owner))
       .catch((err) => {

@@ -1,6 +1,6 @@
 import React from "react"
 import { signIn, isAuthenticated, getDecodedToken } from "authenticare/client"
-import { getUserDetails } from "../api/walker"
+import { fetchUserDetails } from "../api/users"
 import { Col, Form, FormGroup, Label, Input, Button } from "reactstrap"
 
 class Login extends React.Component {
@@ -10,6 +10,7 @@ class Login extends React.Component {
     this.state = {
       username: "",
       password: "",
+      isLoading: false,
     }
   }
 
@@ -17,11 +18,13 @@ class Login extends React.Component {
     this.setState({
       [e.target.name]: e.target.value,
     })
-  };
+  }
 
   handleSubmit(e) {
     e.preventDefault()
-    signIn(
+    this.setState({ isLoading: true })
+
+    const promise = signIn(
         {
           username: this.state.username,
           password: this.state.password,
@@ -31,18 +34,21 @@ class Login extends React.Component {
         },
     ).then((token) => {
       if (isAuthenticated()) {
-        getUserDetails(getDecodedToken().id).then((user) => {
-          console.log("the user is " + user)
-          if (user.walker) this.props.history.push("/walkers/" + user.walker.id)
-        })
+        const { id } = getDecodedToken()
+
+        return Promise.resolve(fetchUserDetails(id))
       }
+    }).then((user) => {
+      console.log(user.walker)
     })
-  };
+
+    return promise
+  }
 
   render() {
     return (
       <>
-        <Form className="form" onSubmit={this.handleSubmit}>
+        <Form className="form" onSubmit={(event) => this.handleSubmit(event)}>
           <h1 className="page-title">Login</h1>
           <div className="box">
             <FormGroup>
@@ -56,7 +62,7 @@ class Login extends React.Component {
                   placeholder="username"
                   name="username"
                   autoComplete="off"
-                  onChange={this.handleChange}
+                  onChange={(event) => this.handleChange(event)}
                 />
               </Col>
             </FormGroup>
@@ -68,7 +74,7 @@ class Login extends React.Component {
                   placeholder="password"
                   name="password"
                   autoComplete="off"
-                  onChange={this.handleChange}
+                  onChange={(event) => this.handleChange(event)}
                 />
               </Col>
             </FormGroup>

@@ -2,7 +2,7 @@ import { ActionTypes } from "../actions/index"
 
 const initialState = []
 
-export const walkers = (state = initialState, action) => {
+export const users = (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.REQUEST_USER:
       return state
@@ -15,4 +15,4 @@ export const walkers = (state = initialState, action) => {
   }
 }
 
-export default walkers
+export default users
